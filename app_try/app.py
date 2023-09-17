@@ -5,6 +5,8 @@ import base64
 from io import BytesIO
 from rembg import remove
 from feed_into_classifier import run_pipeline
+from custom_cnn import CustomCNN
+
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'

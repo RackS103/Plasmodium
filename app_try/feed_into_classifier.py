@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.metrics import roc_curve, auc, log_loss, accuracy_score
+from custom_cnn import CustomCNN
 from tqdm import tqdm
 import cv2
 
@@ -20,22 +21,6 @@ from io import BytesIO
 
 #pip install Pillow 
 
-class CustomCNN(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.model = nn.Sequential(nn.Conv2d(3, 8, kernel_size=3, padding=1),
-                                    nn.ReLU(),
-                                    nn.MaxPool2d(2,2),
-                                    nn.Conv2d(8, 16, kernel_size=3, padding=1),
-                                    nn.ReLU(),
-                                    nn.MaxPool2d(2,2),
-                                    nn.Flatten(),
-                                    nn.Linear(56*56*16, 128),
-                                    nn.ReLU(),
-                                    nn.Linear(128, 2))
-
-    def forward(self, X):
-        return self.model(X)
 
 def base64_to_image(base64_str, output_path):
     # Decode the base64 string
@@ -149,7 +134,6 @@ def classify_cropped_images(cropped_images_path, model_path='./classifier.pth'):
         for batch, _ in dataloader:
             batch = batch.to('mps')
             outputs = model(batch)
-            print(outputs)
             _, preds = torch.max(outputs, 1)
             all_preds.extend(preds.cpu().numpy())
 
@@ -186,7 +170,7 @@ def run_pipeline(input_str, is_bstring=True):
         image_path = input_str
     #Run matlab script
 
-    os.system(f'./matlab/run_matlab.py {os.path.abspath(image_path)} > ./tmp/matlab_log.txt')
+    os.system(f'./matlab/run_matlab.py "{os.path.abspath(image_path)}"')
     mat_data = scipy.io.loadmat('./tmp/Segmentation_Output/_Bounding Boxes_.mat')
     rectangle_coords = mat_data['allrect']
     

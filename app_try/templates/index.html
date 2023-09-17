@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="app_try/static/style.css" /> -->
+    <link rel="stylesheet" href="{{url_for('static',filename= 'style.css')}}" />
+
+    <title>Plasmodium</title>
+  </head>
+
+  <body>
+    
+    <div class="card">
+      <div class="horizontalDiv"></div>
+
+      <div class="imageDisplay">
+        <img src="data:image/jpeg;base64,{{ image_data }}" alt="Uploaded Image" class="annotation">
+        <!-- <p> {{pct_value}} cells are infected with malaria </p>  -->
+      </div>
+    
+      <div class = form-container>
+        <div class="logo">
+          <img src="{{url_for('static', filename='plasmodium_cc6ca7-removebg-.png') }}" class="logoImage"/>
+        </div> 
+        <form class = "custom-form" action="/upload" method="POST" enctype="multipart/form-data">
+          <label class="imageInput">
+            Select blood cell file
+            <input type="file" name="image" accept="image/*">
+          </label>
+          <input type="submit" value="Upload Image" class="uploadButton">
+        </form>  
+      </div>
+      
+  
+
+      <!-- <div class="imageDisplay">
+        {% if img_data %}
+          <img id="picture" src="data:image/jpeg;base64,{{ img_data }}">
+        {% else %}
+          <img src="Star_Vector.svg" alt="Loading" class="Feed-loading" />
+          {% endif %}
+      </div> 
+        <div class="form-control">
+          <form action="/prompt" method="post" id="form1">
+            <input
+              type="text"
+              name="prompt"
+              style="font-size: 32px"
+              id=""
+              value="{{ prompt }}"
+              placeholder="  Enter your prompt"
+            />
+          </form>
+          <button type="submit" form="form1" class="uploadButton">
+            <img class="generateLogo" src="" />
+            Upload
+          </button>
+          </form> 
+        <div class="keyPlaceholder">
+          <div class="keyLabelPlaceholder">
+          </div>
+      </div>
+    <div class="logo">
+      mg src="archigen_logo-nobg.png" alt="logo" />
+    </div> -->
+      
+    </div>
+
+   
+
+ 
+  </body>
+</html>

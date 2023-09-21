@@ -1,5 +1,8 @@
 # Plasmodium | HackMIT 2023
-Team: Rac Mukkamala, Victory Yinka-Banjo, Kosi Ugorji, Ananth Shyamal
+
+**1st Place Winner in the CareYaya Elder Tech Innovation Special Challenge**
+
+Created by Rac Mukkamala, Victory Yinka-Banjo, Kosi Ugorji, Ananth Shyamal
 
 ## Inspiration
 We were inspired by the development of foldscope, a very low-cost, high-resolution foldable microscope (https://en.wikipedia.org/wiki/Foldscope) capable of imaging blood cells. We wanted to create tools that can integrate with this microscope and, more generally, other applications and better improve health in the developing world. Malaria is a leading cause of death in many developing countries, where blood smears are used to identify the presence of parasites in red blood cells (RBCs). To improve the efficiency of detecting parasitic cells in blood smears, ultimately speeding up malaria diagnosis, we aimed to create an online tool that can do this in minutes. 
